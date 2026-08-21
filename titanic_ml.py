@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
 # 1. Load the training data
-data = pd.read_csv("C:\\Users\\jayar\\OneDrive\\Desktop\\Val\\Titanic ML\\train.csv")
+data = pd.read_csv("data/train.csv")
 
 # 2. Drop unused columns
 data.drop(["PassengerId", "Name", "Ticket", "Cabin"], axis=1, inplace=True)
@@ -43,12 +43,17 @@ print(classification_report(y_val, y_pred_lr))
 
 # Confusion Matrix for Logistic Regression
 cm_lr = confusion_matrix(y_val, y_pred_lr)
-plt.figure(figsize=(5,4))
+
+plt.figure(figsize=(5, 4))
 sns.heatmap(cm_lr, annot=True, fmt='d', cmap='Blues')
 plt.title("Confusion Matrix - Logistic Regression")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
+
+plt.tight_layout()
+plt.savefig("images/logistic_regression_confusion_matrix.png", dpi=300, bbox_inches="tight")
 plt.show()
+plt.close()
 
 # 8. Random Forest
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -61,15 +66,20 @@ print(classification_report(y_val, y_pred_rf))
 
 # Confusion Matrix for Random Forest
 cm_rf = confusion_matrix(y_val, y_pred_rf)
-plt.figure(figsize=(5,4))
+
+plt.figure(figsize=(5, 4))
 sns.heatmap(cm_rf, annot=True, fmt='d', cmap='Greens')
 plt.title("Confusion Matrix - Random Forest")
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
+
+plt.tight_layout()
+plt.savefig("images/random_forest_confusion_matrix.png", dpi=300, bbox_inches="tight")
 plt.show()
+plt.close()
 
 # 9. (Optional) Predict on test.csv for submission
-test_data = pd.read_csv("C:\\Users\\jayar\\OneDrive\\Desktop\\Val\\Titanic ML\\test.csv")
+test_data = pd.read_csv("data/test.csv")
 test_passenger_id = test_data["PassengerId"]
 test_data.drop(["Name", "Ticket", "Cabin"], axis=1, inplace=True)
 
@@ -87,5 +97,5 @@ test_data = test_data.reindex(columns=X.columns, fill_value=0)
 # Final predictions (using Random Forest)
 final_preds = rf.predict(test_data)
 submission = pd.DataFrame({"PassengerId": test_passenger_id, "Survived": final_preds})
-submission.to_csv("C:\\Users\\jayar\\OneDrive\\Desktop\\Val\\Titanic ML\\submission.csv", index=False)
+submission.to_csv("data/submission.csv", index=False)
 print("\nSubmission file saved as submission.csv")
