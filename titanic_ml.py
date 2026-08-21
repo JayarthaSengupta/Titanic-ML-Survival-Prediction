@@ -1,4 +1,5 @@
-# titanic_simple_ml.py
+# titanic_ml.py
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
