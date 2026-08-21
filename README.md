@@ -209,21 +209,21 @@ The script prints the classification report and accuracy for both models directl
 
 ## 📊 Confusion Matrices
 
-### Logistic Regression
+The confusion matrices below show the classification performance of the two models on the validation dataset.
 
-The confusion matrix shows the number of correct and incorrect predictions made by the Logistic Regression model.
+<table>
+  <tr>
+    <td align="center">
+      <strong>Logistic Regression</strong><br><br>
+      <img src="images/logistic_regression_confusion_matrix.png" width="400">
+    </td>
+    <td align="center">
+      <strong>Random Forest</strong><br><br>
+      <img src="images/random_forest_confusion_matrix.png" width="400">
+    </td>
+  </tr>
+</table>
 
-![Logistic Regression Confusion Matrix](images/logistic_regression_confusion_matrix.png)
-
----
-
-### Random Forest
-
-The Random Forest confusion matrix shows the classification performance of the Random Forest model on the validation set.
-
-![Random Forest Confusion Matrix](images/random_forest_confusion_matrix.png)
-
----
 
 ## 📁 Project Structure
 
