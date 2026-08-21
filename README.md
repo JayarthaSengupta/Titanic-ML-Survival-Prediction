@@ -85,44 +85,7 @@ data/
 
 ## 🔄 Machine Learning Workflow
 
-```text
-Titanic Dataset
-       │
-       ▼
-Data Loading
-       │
-       ▼
-Remove Unused Features
-       │
-       ▼
-Handle Missing Values
-       │
-       ▼
-Encode Categorical Features
-       │
-       ▼
-Train / Validation Split
-       │
-       ├───────────────┐
-       ▼               ▼
-Logistic Regression  Random Forest
-       │               │
-       ▼               ▼
-Predictions         Predictions
-       │               │
-       └───────┬───────┘
-               ▼
-        Model Evaluation
-               │
-               ▼
-       Confusion Matrices
-               │
-               ▼
-      Final Test Predictions
-               │
-               ▼
-        submission.csv
-```
+![ML_workflow](images/ML_Workflow.png)
 
 ---
 
